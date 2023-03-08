@@ -2,5 +2,5 @@
 ## Title: SimplifyTooltip
 ## Notes: Simplifies the text in item tooltips
 ## Author: Zaraks
-## Version: 1.0.0
+## Version: 1.0.1
 SimplifyTooltip.lua

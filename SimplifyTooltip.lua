@@ -82,6 +82,7 @@ freeTextToShorten["Hit Rating"] = "Hit"
 freeTextToShorten["mana per 5 seconds"] = "Mp5"
 freeTextToShorten["Mana every 5 seconds"] = "Mp5"
 freeTextToShorten["Mana per 5 sec"] = "Mp5"
+freeTextToShorten["mana per 5 sec"] = "Mp5"
 
 local function ReformatLine(line, text)
   if not line then return end
