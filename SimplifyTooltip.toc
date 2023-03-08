@@ -1,0 +1,6 @@
+## Interface: 30400
+## Title: SimplifyTooltip
+## Notes: Simplifies the text in item tooltips
+## Author: Zaraks
+## Version: 1.0.0
+SimplifyTooltip.lua
