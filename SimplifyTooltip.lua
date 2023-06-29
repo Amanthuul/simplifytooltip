@@ -10,49 +10,46 @@ local function topattern(str)
 end
 
 -- Secondary stats
-local STAT_CRIT = { "Equip: Improves critical strike rating by (%d+).", "Crit" }
-local STAT_CRIT2 = { "Equip: Increases your critical strike rating by (%d+).", "Crit" }
-local STAT_HASTE = { "Equip: Improves haste rating by (%d+).", "Haste" }
-local STAT_HIT = { "Equip: Improves hit rating by (%d+).", "Hit" }
-local STAT_HIT2 = { "Equip: Increases your hit rating by (%d+).", "Hit" }
-local STAT_AP = { "Equip: Increases attack power by (%d+).", "Attack Power" }
-local STAT_EXPERTISE = { "Equip: Increases your expertise rating by (%d+).", "Expertise" }
-local STAT_DEFENSE = { "Equip: Increases defense rating by (%d+).", "Defense" }
-local STAT_DODGE = { "Equip: Increases your dodge rating by (%d+).", "Dodge" }
-local STAT_PARRY = { "Equip: Increases your parry rating by (%d+).", "Parry" }
-local STAT_BLOCK_RATING = { "Equip: Increases your shield block rating by (%d+).", "Block Rating" }
-local STAT_BLOCK_RATING2 = { "Equip: Increases your block rating by (%d+).", "Block Rating" }
-local STAT_BLOCK_VALUE = { "Equip: Increases the block value of your shield by (%d+).", "Block Value" }
-local STAT_RESIL = { "Equip: Improves your resilience rating by (%d+).", "Resilience" }
-local STAT_SP = { "Equip: Increases spell power by (%d+).", "Spell Power" }
-local STAT_MP5 = { "Equip: Restores (%d+) mana per 5 sec.", "Mp5" }
-local STAT_ARP = { "Equip: Increases armor penetration rating by (%d+).", "ArP" }
-local STAT_ARP2 = { "Equip: Increases your armor penetration by (%d+).", "ArP" }
-local STAT_EXPERIENCE = { "Equip: Experience gained from killing monsters and completing quests increased by (%d+%%)",
-  "XP" }
-local STAT_FERAL_AP = { "Increases attack power by (%d+) in Cat, Bear, Dire Bear, and Moonkin forms only.", "Feral AP" }
-local STAT_SPELL_PEN = { "Equip: Increases your spell penetration by (%d+).", "Spell Penetration" }
-local STAT_RAP = { "Equip: Increases ranged attack power by (%d+).", "Ranged Attack Power" }
+local STAT_CRIT = { "Если на персонаже: Повышает рейтинг критического удара на (%d+).", "к критическому удару" }
+local STAT_HASTE = { "Если на персонаже: Повышает рейтинг скорости боя на (%d+).", "к скорости" }
+local STAT_HIT = { "Если на персонаже: Повышает рейтинг меткости на (%d+).", "к меткости" }
+local STAT_AP = { "Если на персонаже: Увеличивает силу атаки на (%d+).", "к силе атаки" }
+local STAT_AP2 = { "Если на персонаже: Повышает силу атаки на (%d+).", "к силе атаки" }
+local STAT_EXPERTISE = { "Если на персонаже: Повышает рейтинг мастерства на (%d+).", "к мастерству" }
+local STAT_DEFENSE = { "Если на персонаже: Повышает рейтинг защиты на (%d+).", "к защите" }
+local STAT_DODGE = { "Если на персонаже: Повышает рейтинг уклонения на (%d+).", "к уклонению" }
+local STAT_PARRY = { "Если на персонаже: Повышает рейтинг парирования на (%d+).", "к парированию" }
+local STAT_BLOCK_RATING = { "Если на персонаже: Увеличивает рейтинг блокирования щитом на (%d+).", "к рейтингу блокирования" }
+local STAT_BLOCK_VALUE = { "Если на персонаже: Увеличивает показатель блокирования щита на (%d+).", "к блокированию" }
+local STAT_BLOCK_VALUE2 = { "Если на персонаже: Увеличивает показатель блокирования вашего щита на (%d+).", "к блокированию" }
+local STAT_BLOCK_VALUE3 = { "Если на персонаже: Повышает показатель блокирования вашего щита на (%d+) ед.", "к блокированию" }
+local STAT_RESIL = { "Если на персонаже: Повышает рейтинг устойчивости на (%d+).", "к устойчивости" }
+local STAT_SP = { "Если на персонаже: Увеличивает силу заклинаний на (%d+).", "к силе заклинаний" }
+local STAT_MP5 = { "Если на персонаже: Восполнение (%d+) ед. маны в 5 секунд.", "к МП5" }
+local STAT_ARP = { "Если на персонаже: Снижает эффективность брони противника против ваших атак на (%d+).", "к РПБ" }
+local STAT_EXPERIENCE = { "Если на персонаже: Повышает опыт, получаемый за убийство монстров и выполнение заданий, на (%d+%%)", "EXP" }
+local STAT_FERAL_AP = { "Увеличивает силу атаки на (%d+) ед. в облике кошки, медведя, лютого медведя или лунного совуха.", "к силе атаки (ферал)" }
+local STAT_SPELL_PEN = { "Если на персонаже: Увеличивает проникающую способность заклинаний на (%d+).", "к проникающей способности заклинаний" }
+local STAT_RAP = { "Если на персонаже: Увеличивает силу атак дальнего боя на (%d+).", "к силе атаки дальнего боя" }
 
 local STAT_LINES_TO_SHORTEN = {
   STAT_CRIT,
-  STAT_CRIT2,
   STAT_HASTE,
   STAT_HIT,
-  STAT_HIT2,
   STAT_AP,
+  STAT_AP2,
   STAT_EXPERTISE,
   STAT_DEFENSE,
   STAT_DODGE,
   STAT_PARRY,
   STAT_BLOCK_RATING,
-  STAT_BLOCK_RATING2,
   STAT_BLOCK_VALUE,
+  STAT_BLOCK_VALUE2,
+  STAT_BLOCK_VALUE3,
   STAT_RESIL,
   STAT_SP,
   STAT_MP5,
   STAT_ARP,
-  STAT_ARP2,
   STAT_EXPERIENCE,
   STAT_FERAL_AP,
   STAT_SPELL_PEN,
@@ -63,26 +60,28 @@ local CREATED_BY = topattern(ITEM_CREATED_BY)
 local RACES = topattern(ITEM_RACES_ALLOWED)
 local REQ_CLASS = topattern(ITEM_CLASSES_ALLOWED)
 local REQ_LEVEL = topattern(ITEM_MIN_LEVEL)
-local DURABILITY = "Durability %d+ / %d+"
-local EQUIPMENT_SETS = "Equipment Sets: .+"
+local DURABILITY = "Прочность: %d+ / %d+"
+local EQUIPMENT_SETS = "Комплекты экипировки: .+"
 
-local WHAT_TO_HIDE = { RACES, CREATED_BY, REQ_LEVEL, DURABILITY, ITEM_SOCKETABLE, EQUIPMENT_SETS }
+local WHAT_TO_HIDE = { RACES, CREATED_BY, ITEM_SOCKETABLE }
 
 local directTextReplacements = {}
-directTextReplacements["Use: Increases your haste rating by 340 for 12 sec. (1 Min Cooldown)"] = "Use: +340 Haste for 12s (1m CD)"
+directTextReplacements["Использование: Повышает рейтинг скорости на 340 на 12 sec. (1 Мин Восстановление)"] = "Использование: +340 скорости на 12с (1 Мин Восстановление)"
 
 local freeTextToShorten = {}
-freeTextToShorten["Defense Rating"] = "Defense"
-freeTextToShorten["Socket Bonus"] = "Bonus"
-freeTextToShorten["Armor Penetration Rating"] = "ArP"
-freeTextToShorten["Critical Strike Rating"] = "Crit"
-freeTextToShorten["Critical strike rating"] = "Crit"
-freeTextToShorten["3%% Increased Critical Damage"] = "+3%% Crit Damage"
-freeTextToShorten["Hit Rating"] = "Hit"
-freeTextToShorten["mana per 5 seconds"] = "Mp5"
-freeTextToShorten["Mana every 5 seconds"] = "Mp5"
-freeTextToShorten["Mana per 5 sec"] = "Mp5"
-freeTextToShorten["mana per 5 sec"] = "Mp5"
+freeTextToShorten["к рейтингу защиты"] = "к защите"
+freeTextToShorten["При соответствии цвета:"] = "Бонус:"
+freeTextToShorten["к рейтингу пробивания брони"] = "к РПБ"
+freeTextToShorten["к рейтингу парирования"] = "к парированию"
+freeTextToShorten["к рейтингу уклонения"] = "к уклонению"
+freeTextToShorten["к рейтингу устойчивости"] = "к устойчивости"
+freeTextToShorten["к рейтингу критического удара"] = "к критическому удару"
+freeTextToShorten["к рейтингу скорости"] = "к скорости"
+freeTextToShorten["к рейтингу мастерства"] = "к мастерству"
+freeTextToShorten["к рейтингу меткости"] = "к меткости"
+freeTextToShorten["ед. маны каждые 5 секунд"] = "к МП5"
+freeTextToShorten["к мане каждые 5 секунд"] = "к МП5"
+
 
 local function ReformatLine(line, text)
   if not line then return end
@@ -116,47 +115,29 @@ local function ReformatLine(line, text)
 
 end
 
-local function ReformatLines(tooltip)
-  local tooltipName = tooltip:GetName()
 
-  local textLeft = tooltip.textLeft
-  if not textLeft then
-    textLeft = setmetatable({}, { __index = function(t, i)
-      local line = _G[tooltipName .. "TextLeft" .. i]
-      t[i] = line
-      return line
-    end })
-    tooltip.textLeft = textLeft
-  end
-
-  local textRight = tooltip.textRight
-  if not textRight then
-    textRight = setmetatable({}, { __index = function(t, i)
-      local line = _G[tooltipName .. "TextRight" .. i]
-      t[i] = line
-      return line
-    end })
-    tooltip.textRight = textRight
-  end
-
-  for i = 2, tooltip:NumLines() do
-    local line = textLeft[i]
-    local text = line:GetText()
-    if text then
-      ReformatLine(line, text)
+local function ReformatLines(...)
+    for i = 1, select("#", ...) do
+        local region = select(i, ...)
+        if region and region:GetObjectType() == "FontString" then
+            local text = region:GetText()
+			if text then
+				ReformatLine(region, text)
+			end
+        end
     end
-  end
 end
+
 
 local function ReformatItemTooltip(tooltip)
 
   -- only reformat item tooltips
   local _, link = tooltip:GetItem()
   if link ~= nil then
-    ReformatLines(tooltip)
+    ReformatLines(tooltip:GetRegions())
     local _, _, _, itemLevel, _, itemType = GetItemInfo(link)
 
-    local shouldDisplay = itemType == "Weapon" or itemType == "Armor"
+    local shouldDisplay = itemType == "Оружие" or itemType == "Броня"
     if shouldDisplay then
       tooltip:AddDoubleLine("ilvl " .. itemLevel, "")
     end
