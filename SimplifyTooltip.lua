@@ -26,8 +26,11 @@ local STAT_BLOCK_VALUE3 = { "Если на персонаже: Повышает 
 local STAT_RESIL = { "Если на персонаже: Повышает рейтинг устойчивости на (%d+).", "к устойчивости" }
 local STAT_SP = { "Если на персонаже: Увеличивает силу заклинаний на (%d+).", "к силе заклинаний" }
 local STAT_MP5 = { "Если на персонаже: Восполнение (%d+) ед. маны в 5 секунд.", "к МП5" }
+local STAT_MP52 = { "Если на персонаже: Восполнение (%d+) ед. маны раз в 5 секунд.", "к МП5" }
+local STAT_MP53 = { "Если на персонаже: Восполнение (%d+) ед. маны за 5 сек.", "к МП5" }
 local STAT_ARP = { "Если на персонаже: Снижает эффективность брони противника против ваших атак на (%d+).", "к РПБ" }
-local STAT_EXPERIENCE = { "Если на персонаже: Повышает опыт, получаемый за убийство монстров и выполнение заданий, на (%d+%%)", "EXP" }
+local STAT_ARP2 = { "Если на персонаже: Увеличивает рейтинг пробивания брони на (%d+).", "к РПБ" }
+local STAT_EXPERIENCE = { "Если на персонаже: Повышает опыт, получаемый за убийство монстров и выполнение заданий, на (%d+%%)", "опыта" }
 local STAT_FERAL_AP = { "Увеличивает силу атаки на (%d+) ед. в облике кошки, медведя, лютого медведя или лунного совуха.", "к силе атаки (ферал)" }
 local STAT_SPELL_PEN = { "Если на персонаже: Увеличивает проникающую способность заклинаний на (%d+).", "к проникающей способности заклинаний" }
 local STAT_RAP = { "Если на персонаже: Увеличивает силу атак дальнего боя на (%d+).", "к силе атаки дальнего боя" }
@@ -49,7 +52,10 @@ local STAT_LINES_TO_SHORTEN = {
   STAT_RESIL,
   STAT_SP,
   STAT_MP5,
+  STAT_MP52,
+  STAT_MP53,
   STAT_ARP,
+  STAT_ARP2,
   STAT_EXPERIENCE,
   STAT_FERAL_AP,
   STAT_SPELL_PEN,
@@ -66,7 +72,7 @@ local EQUIPMENT_SETS = "Комплекты экипировки: .+"
 local WHAT_TO_HIDE = { RACES, CREATED_BY, ITEM_SOCKETABLE }
 
 local directTextReplacements = {}
-directTextReplacements["Использование: Повышает рейтинг скорости на 340 на 12 sec. (1 Мин Восстановление)"] = "Использование: +340 скорости на 12с (1 Мин Восстановление)"
+directTextReplacements["Использование: Повышает рейтинг скорости на 340 на 12 sec. (1 Мин Восстановление)"] = "Использование: +340 скорости на 12с. (1 Мин Восстановление)"
 
 local freeTextToShorten = {}
 freeTextToShorten["к рейтингу защиты"] = "к защите"
@@ -81,6 +87,7 @@ freeTextToShorten["к рейтингу мастерства"] = "к мастер
 freeTextToShorten["к рейтингу меткости"] = "к меткости"
 freeTextToShorten["ед. маны каждые 5 секунд"] = "к МП5"
 freeTextToShorten["к мане каждые 5 секунд"] = "к МП5"
+freeTextToShorten["Если на персонаже:"] = "Эффект:"
 
 
 local function ReformatLine(line, text)
@@ -139,7 +146,7 @@ local function ReformatItemTooltip(tooltip)
 
     local shouldDisplay = itemType == "Оружие" or itemType == "Броня"
     if shouldDisplay then
-      tooltip:AddDoubleLine("ilvl " .. itemLevel, "")
+      tooltip:AddDoubleLine("iLvl: " .. itemLevel, "")
     end
   end
 
