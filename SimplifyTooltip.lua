@@ -69,7 +69,8 @@ local REQ_LEVEL = topattern(ITEM_MIN_LEVEL)
 local DURABILITY = "Прочность: %d+ / %d+"
 local EQUIPMENT_SETS = "Комплекты экипировки: .+"
 
-local WHAT_TO_HIDE = { RACES, CREATED_BY, ITEM_SOCKETABLE }
+--Сюда можно вписать строчки сверху чтобы скрыть соответствующие строки.
+local WHAT_TO_HIDE = { RACES, CREATED_BY, ITEM_SOCKETABLE, EQUIPMENT_SETS, DURABILITY, REQ_LEVEL }
 
 local directTextReplacements = {}
 directTextReplacements["Использование: Повышает рейтинг скорости на 340 на 12 sec. (1 Мин Восстановление)"] = "Использование: +340 скорости на 12с. (1 Мин Восстановление)"
