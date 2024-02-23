@@ -61,9 +61,35 @@ local STAT_EXPERIENCE = { "Equip: Experience gained from killing monsters and co
 local STAT_FERAL_AP = { "Increases attack power by (%d+) in Cat, Bear, Dire Bear, and Moonkin forms only.", "Feral AP" }
 local STAT_FERAL_AP_Classic = { "Equip: %+(%d+) Attack Power in Cat, Bear, and Dire Bear forms only.", "Feral AP" }
 local STAT_FERAL_AP_Classic_set = { "Set: %+(%d+) Attack Power in Cat, Bear, and Dire Bear forms only.", "Feral AP" }
+local STAT_SPELL_PEN = { "Equip: Increases your spell penetration by %+(%d+).", "Spell Penetration" }
+local STAT_RAP = { "Equip: Increases ranged attack power by %+(%d+).", "Ranged Attack Power" }
 
-local STAT_SPELL_PEN = { "Equip: Increases your spell penetration by (%d+).", "Spell Penetration" }
-local STAT_RAP = { "Equip: Increases ranged attack power by (%d+).", "Ranged Attack Power" }
+local STAT_AXES = { "Equip: Increased Axes %+(%d+).", "Axes" }
+local STAT_AXES_2H = { "Equip: Increased Two%-handed Axes %+(%d+).", "Two-handed Axes" }
+local STAT_DAGGERS = { "Equip: Increased Daggers %+(%d+).", "Daggers" }
+local STAT_SWORDS = { "Equip: Increased Swords %+(%d+).", "Swords" }
+local STAT_SWORDS_2H = { "Equip: Increased Two%-handed Swords %+(%d+).", "Two-handed Swords" }
+local STAT_MACES = { "Equip: Increased Maces %+(%d+).", "Maces" }
+local STAT_MACES_2H = { "Equip: Increased Two%-handed Maces %+(%d+).", "Two-handed Maces" }
+local STAT_FIST = { "Equip: Increased Fist Weapons %+(%d+).", "Fist Weapons" }
+local STAT_BOWS = { "Equip: Increased Bows %+(%d+).", "Bows" }
+local STAT_CROSSBOWS = { "Equip: Increased Crossbows %+(%d+).", "Crossbows" }
+local STAT_GUNS = { "Equip: Increased Guns %+(%d+).", "Guns" }
+local STAT_STAVES = { "Equip: Increased Staves %+(%d+).", "Staves" }
+local STAT_AXES_set = { "Set: Increased Axes %+(%d+).", "Axes" }
+local STAT_AXES_2H_set = { "Set: Increased Two%-handed Axes %+(%d+).", "Two-handed Axes" }
+local STAT_DAGGERS_set = { "Set: Increased Daggers %+(%d+).", "Daggers" }
+local STAT_SWORDS_set = { "Set: Increased Swords %+(%d+).", "Swords" }
+local STAT_SWORDS_2H_set = { "Set: Increased Two%-handed Swords %+(%d+).", "Two-handed Swords" }
+local STAT_MACES_set = { "Set: Increased Maces %+(%d+).", "Maces" }
+local STAT_MACES_2H_set = { "Set: Increased Two%-handed Maces %+(%d+).", "Two-handed Maces" }
+local STAT_FIST_set = { "Set: Increased Fist Weapons %+(%d+).", "Fist Weapons" }
+local STAT_BOWS_set = { "Set: Increased Bows %+(%d+).", "Bows" }
+local STAT_CROSSBOWS_set = { "Set: Increased Crossbows %+(%d+).", "Crossbows" }
+local STAT_GUNS_set = { "Set: Increased Guns %+(%d+).", "Guns" }
+local STAT_STAVES_set = { "Set: Increased Staves %+(%d+).", "Staves" }
+
+
 
 local STAT_LINES_TO_SHORTEN = {
   STAT_FERAL_AP_Classic,
@@ -99,7 +125,19 @@ local STAT_LINES_TO_SHORTEN = {
   STAT_EXPERIENCE,
   STAT_FERAL_AP,
   STAT_SPELL_PEN,
-  STAT_RAP
+  STAT_RAP,
+  STAT_AXES,
+  STAT_AXES_2H,
+  STAT_DAGGERS,
+  STAT_SWORDS,
+  STAT_SWORDS_2H,
+  STAT_MACES,
+  STAT_MACES_2H,
+  STAT_FIST,
+  STAT_BOWS,
+  STAT_CROSSBOWS,
+  STAT_GUNS,
+  STAT_STAVES
 }
 local STAT_LINES_TO_SHORTEN_Percent = {
 STAT_CRIT_Classic,
@@ -118,6 +156,18 @@ local STAT_LINES_TO_SHORTEN_SET = {
   STAT_SPH_Classic_set,
   STAT_MP5_Classic_set,
   STAT_DEFENSE_Classic_set,
+  STAT_AXES_set,
+  STAT_AXES_2H_set,
+  STAT_DAGGERS_set,
+  STAT_SWORDS_set,
+  STAT_SWORDS_2H_set,
+  STAT_MACES_set,
+  STAT_MACES_2H_set,
+  STAT_FIST_set,
+  STAT_BOWS_set,
+  STAT_CROSSBOWS_set,
+  STAT_GUNS_set,
+  STAT_STAVES_set
 }
 local STAT_LINES_TO_SHORTEN_SET_Percent = {
   STAT_HIT_Classic_set,
