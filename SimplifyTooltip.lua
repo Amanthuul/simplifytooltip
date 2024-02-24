@@ -70,6 +70,13 @@ local STAT_AP_Classic_set = {"placeholder","placeholder"}
 local STAT_FERAL_AP_Classic_2 = {"placeholder","placeholder"}
 local STAT_FERAL_AP_Classic_set_2 = {"placeholder","placeholder"}
 
+local STAT_AP_BEAST = { "Equip: %+(%d+) Attack Power when fighting Beasts.", "Attack Power vs Beasts" }
+local STAT_AP_DEMON = { "Equip: %+(%d+) Attack Power when fighting Demons.", "Attack Power vs Demons" }
+local STAT_AP_DRAGON = { "Equip: %+(%d+) Attack Power when fighting Dragonkin.", "Attack Power vs Dragons" }
+local STAT_AP_ELEMENTAL = { "Equip: %+(%d+) Attack Power when fighting Elementals.", "Attack Power vs Elementals" }
+local STAT_AP_MECH = { "Equip: %+(%d+)  Attack Power when fighting Mechanical units.", "Attack Power vs Mechanical" }
+local STAT_AP_UNDEAD = { "Equip: %+(%d+) Attack Power when fighting Undead.", "Attack Power vs Undead" }
+
 if (GetLocale() == "ruRU") then
  STAT_CRIT_Classic = { "Если на персонаже: Повышает вероятность нанести критический удар атаками ближнего и дальнего боя, а также заклинаниями на (%d+).", "критического удара" }
  STAT_CRIT_Classic_set = { "Комплект.+: Повышает вероятность нанести критический удар атаками ближнего и дальнего боя, а также заклинаниями на (%d+).", "критического удара" }
@@ -130,12 +137,23 @@ if (GetLocale() == "ruRU") then
  STAT_CROSSBOWS_set = { "Комплект.+: Увеличение рейтинга навыка владения арбалетом на (%d+).", "Арбалеты" }
  STAT_GUNS_set = { "Комплект.+: Повышение навыка использования огнестрельного оружия на (%d+) ед.", "Огнестрельное оружие" }
  STAT_STAVES_set = { "Комплект.+: Повышение навыка использования посохов на (%d+) ед.", "Посохи" }
+ STAT_AP_BEAST = { "Если на персонаже: Увеличение на (%d+) ед. силы атаки в бою с животными.", "силы атаки против животных" }
+ STAT_AP_DEMON = { "Если на персонаже: Повышение силы атаки на (%d+) ед. в бою с демонами.", "силы атаки против демонов" }
+ STAT_AP_DRAGON = { "Если на персонаже: Увеличивает силу атаки на (%d+) ед. в битве с драконами.", "силы атаки против драконов" }
+ STAT_AP_ELEMENTAL = { "Если на персонаже: Увеличение силы атаки на (%d+) ед. в битве с элементалями.", "силы атаки против элементалей" }
+ STAT_AP_MECH = { "Если на персонаже: Увеличивает силу атаки на (%d+) ед. в бою с механизмами.", "силы атаки против механизмов" }
+ STAT_AP_UNDEAD = { "Если на персонаже: Увеличение силы атаки на (%d+) ед. в бою с нежитью.", "силы атаки против нежити" }
 end
 local STAT_LINES_TO_SHORTEN = {
   STAT_FERAL_AP_Classic,
   STAT_FERAL_AP_Classic_2,
-  STAT_AP_Classic,
-  STAT_Ranged_AP_Classic,
+  STAT_AP_BEAST,
+  STAT_AP_DEMON,
+  STAT_AP_DRAGON,
+  STAT_AP_ELEMENTAL,
+  STAT_AP_MECH,
+  STAT_AP_UNDEAD,
+
   STAT_DEFENSE_Classic,
   STAT_SP_Classic,
   STAT_SPH_Classic,
@@ -157,18 +175,20 @@ local STAT_LINES_TO_SHORTEN = {
   STAT_BOWS,
   STAT_CROSSBOWS,
   STAT_GUNS,
-  STAT_STAVES
+  STAT_STAVES,  
+  STAT_AP_Classic,
+  STAT_Ranged_AP_Classic,
 }
 local STAT_LINES_TO_SHORTEN_Percent = {
-STAT_CRIT_Classic,
-STAT_CRIT_Melee_Ranged_Classic,
-STAT_CRIT_Spell_Classic,
-STAT_HIT_Classic,
-STAT_HIT_Melee_Ranged_Classic,
-STAT_HIT_Spell_Classic,
-STAT_DODGE_Classic,
-STAT_PARRY_Classic,
-STAT_BLOCK_CHANCE_Classic,
+  STAT_CRIT_Classic,
+  STAT_CRIT_Melee_Ranged_Classic,
+  STAT_CRIT_Spell_Classic,
+  STAT_HIT_Classic,
+  STAT_HIT_Melee_Ranged_Classic,
+  STAT_HIT_Spell_Classic,
+  STAT_DODGE_Classic,
+  STAT_PARRY_Classic,
+  STAT_BLOCK_CHANCE_Classic,
 }
 local STAT_LINES_TO_SHORTEN_SET = {
   STAT_FERAL_AP_Classic_set,
@@ -189,7 +209,7 @@ local STAT_LINES_TO_SHORTEN_SET = {
   STAT_CROSSBOWS_set,
   STAT_GUNS_set,
   STAT_STAVES_set,
-  STAT_AP_Classic_set
+  STAT_AP_Classic_set,
 }
 local STAT_LINES_TO_SHORTEN_SET_Percent = {
   STAT_HIT_Classic_set,
