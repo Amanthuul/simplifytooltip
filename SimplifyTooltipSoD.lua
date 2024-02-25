@@ -74,7 +74,7 @@ local STAT_AP_BEAST = { "Equip: %+(%d+) Attack Power when fighting Beasts.", "At
 local STAT_AP_DEMON = { "Equip: %+(%d+) Attack Power when fighting Demons.", "Attack Power vs Demons" }
 local STAT_AP_DRAGON = { "Equip: %+(%d+) Attack Power when fighting Dragonkin.", "Attack Power vs Dragons" }
 local STAT_AP_ELEMENTAL = { "Equip: %+(%d+) Attack Power when fighting Elementals.", "Attack Power vs Elementals" }
-local STAT_AP_MECH = { "Equip: %+(%d+)  Attack Power when fighting Mechanical units.", "Attack Power vs Mechanical" }
+local STAT_AP_MECH = { "Equip: %+(%d+) Attack Power when fighting Mechanical units.", "Attack Power vs Mechanical" }
 local STAT_AP_UNDEAD = { "Equip: %+(%d+) Attack Power when fighting Undead.", "Attack Power vs Undead" }
 
 if (GetLocale() == "ruRU") then

@@ -1,0 +1,6 @@
+## Interface: 11500
+## Title: SimplifyTooltipSoD
+## Notes: Simplifies the text in item tooltips
+## Author:  Amanthuul, Zaraks(original)
+## Version: 1.0.4
+SimplifyTooltipSoD.lua
