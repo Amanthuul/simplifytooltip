@@ -34,6 +34,7 @@ local STAT_EXPERIENCE = { "Если на персонаже: Повышает о
 local STAT_FERAL_AP = { "Увеличивает силу атаки на (%d+) ед. в облике кошки, медведя, лютого медведя или лунного совуха.", "к силе атаки (ферал)" }
 local STAT_SPELL_PEN = { "Если на персонаже: Увеличивает проникающую способность заклинаний на (%d+).", "к проникающей способности заклинаний" }
 local STAT_RAP = { "Если на персонаже: Увеличивает силу атак дальнего боя на (%d+).", "к силе атаки дальнего боя" }
+local STAT_MASTERY = { "(%d+) Искусность", "к искусности" }
 
 local STAT_LINES_TO_SHORTEN = {
   STAT_CRIT,
@@ -59,7 +60,8 @@ local STAT_LINES_TO_SHORTEN = {
   STAT_EXPERIENCE,
   STAT_FERAL_AP,
   STAT_SPELL_PEN,
-  STAT_RAP
+  STAT_RAP,
+  STAT_MASTERY
 }
 
 local CREATED_BY = topattern(ITEM_CREATED_BY)
@@ -70,7 +72,7 @@ local DURABILITY = "Прочность: %d+ / %d+"
 local EQUIPMENT_SETS = "Комплекты экипировки: .+"
 
 --Сюда можно вписать строчки сверху чтобы скрыть соответствующие строки.
-local WHAT_TO_HIDE = { RACES, CREATED_BY, ITEM_SOCKETABLE, EQUIPMENT_SETS, DURABILITY}
+local WHAT_TO_HIDE = { RACES, CREATED_BY, EQUIPMENT_SETS, DURABILITY}
 
 local directTextReplacements = {}
 directTextReplacements["Использование: Повышает рейтинг скорости на 340 на 12 sec. (1 Мин Восстановление)"] = "Использование: +340 скорости на 12с. (1 Мин Восстановление)"
